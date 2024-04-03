@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-cJaMpDuTwqHDzrpvh2l0V0Gqv8B5dZcP+T5+yKXQ+wucxgWG0bz+11Xp2FX0ozCfGmRjCPL5kzbKfwJykDh1VQ==" crossorigin="anonymous" />
+<title>Styled Form</title>
+<style>
+    body {
+        font-family: 'Roboto', sans-serif;
+        background-color: rgb(240,235,248);
+        margin: 0;
+        padding: 0;
+    }
+    /* Generic style for the navigation menu */
+    .form-navigation {
+    display: flex; /* this will lay out its children inline */
+    justify-content: center;
+    padding: 0;
+    margin-top: 10px; /* space above the navigation links */
+}
+
+/* Style for individual navigation links */
+.nav-link {
+    display: inline-block; /* this will lay out the links inline with some block features */
+    padding: 8px 15px; /* top/bottom and left/right padding */
+    margin-right: 10px; /* space between links */
+    text-decoration: none; /* removes underline from links */
+    color: #000; /* link text color */
+    font-weight: normal; /* makes the text bold */
+    border-radius: 4px; /* rounded corners for the link backgrounds */
+    font-size: 18px;
+}
+/* Style specifically for the settings link */
+.nav-link.questions {
+    color: rgb(103, 58, 183); /* Setting color to rgb(103,58,183) */
+    font-weight: bolder;    
+}
+
+
+/* Removes margin for the last link to avoid unnecessary spacing to the right */
+.nav-link:last-child {
+    margin-right: 0;
+}
+
+/* Hover effect for navigation links */
+.nav-link:hover {
+    background-color: #f2f2f2; /* light grey background on hover */
+    text-decoration: none; /* ensures underline does not appear on hover */
+    cursor: pointer; /* changes the cursor to indicate the link is clickable */
+}
+.header {
+    background-color: #ffffff; /* white background */
+    color: black; /* dark gray color for the text */
+    display: flex; /* using flexbox for layout */
+    align-items: center; /* vertically center items in the header */
+    justify-content: space-between; /* spread out the items */
+    padding: 30px 24px; /* top and bottom padding 16px, left and right padding 24px */
+    box-shadow: 0 1px 2px 0 rgba(60,64,67,0.302), 0 1px 3px 1px rgba(60,64,67,0.149); /* subtle shadow for depth */
+    font-size: 22px; /* adjusting font size to match */
+    border-bottom: 1px solid #dadce0; /* light gray border at the bottom */
+}
+
+/* This is the new part */
+.header .left-section {
+    display: flex; /* using flexbox for layout */
+    align-items: center; /* align items vertically */
+    gap: 10px; /* space between items */
+}
+
+.header .center-section {
+    display: flex;
+    flex-grow: 1; /* takes up the available space */
+    justify-content: center; /* centers the navigation links */
+}
+
+.form-navigation {
+    display: flex; /* this will lay out its children inline */
+    justify-content: center;
+    align-items: center; /* vertically center the links */
+    gap: 20px; /* space between navigation links */
+}
+
+    .header .right-section {
+        display: flex; /* using flexbox for layout */
+        align-items: center; /* align items vertically */
+        gap: 20px; /* space between items */
+    }
+
+    .header .right-section button {
+        background-color: rgb(103,58,183); /* blue background for buttons */
+        color: white; /* white text color */
+        border: none; /* no border */
+        padding: 10px 20px; /* padding inside the button */
+        border-radius: 4px; /* rounded corners for the button */
+        cursor: pointer; /* cursor changes to pointer on hover */
+        font-size: 16px; /* font size for the text inside the button */
+    }
+
+    .header .right-section button:hover {
+        background-color: grey; /* slightly darker blue on hover */
+    }
+
+    .header .right-section .more-options {
+        background: none; /* no background for the more options button */
+        color: #5f6368; /* color of the text/icon */
+        border: none; /* no border */
+        padding: 10px; /* padding inside the button */
+        border-radius: 50%; /* circular shape */
+        cursor: pointer; /* cursor changes to pointer on hover */
+    }
+
+    /* Assuming you will use icons like FontAwesome, this is how you can style the icons */
+    .header i {
+        font-size: 24px; /* size of the icon */
+        color: #5f6368; /* icon color */
+    }
+
+    .header .star-icon {
+        color: #f4b400; /* golden color for the star */
+    }
+
+    .form-container {
+            max-width: 600px;
+            margin: 20px auto;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+    .form-title {
+        padding: 20px;
+        margin: 30px;
+        border-bottom: 1px solid #ccc;
+    }
+    .form-title h1 {
+        margin: 0;
+    }
+    .form-body {
+        padding: 20px;
+    }
+    .form-question {
+        margin-bottom: 20px;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+    }
+    .form-question label {
+        font-weight: 500;
+        display: block;
+        margin: 8px 0;
+    }
+    .form-question input[type="radio"] {
+        margin-right: 10px;
+    }
+    .form-footer {
+        padding: 20px;
+        border-top: 1px solid #ccc;
+        text-align: right;
+    }
+
+    .button-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+    #add-question {
+        background-color: rgb(103,58,183);
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+        margin-top: 20px;
+    }
+    #add-question:hover{
+        background-color: grey;
+    }
+    .submit-btn {
+        background-color: rgb(103,58,183);
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+    .submit-btn:hover{
+        background-color: grey;
+    }
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        class Question {
+            constructor(questionNumber) {
+                this.questionNumber = questionNumber;
+            }
+    
+            createQuestionElement() {
+    let questionContainer = document.createElement('div');
+    questionContainer.classList.add('form-question');
+
+    // Creating a label for the question statement
+    let questionStatement = document.createElement('label');
+    questionStatement.textContent = 'Enter your question statement here';
+    questionStatement.contentEditable = true;
+    questionStatement.onblur = function() { this.contentEditable = false; };
+    questionStatement.classList.add('question-statement'); // Add a class for styling
+    questionContainer.appendChild(questionStatement);
+ // Creating a delete button with trash bin icon
+ let deleteButton = document.createElement('button');
+    deleteButton.textContent = 'delete';
+    deleteButton.classList.add('delete-button');
+    deleteButton.style.float = 'right';
+    let icon = document.createElement('i');
+    icon.classList.add('fas', 'fa-times'); // Use 'fas' for solid icons
+    deleteButton.appendChild(icon);
+    deleteButton.onclick = function() {
+        questionContainer.remove(); // Remove the question container when delete button is clicked
+    };
+    questionContainer.appendChild(deleteButton);
+    // Create radio buttons
+    for (let i = 1; i <= 3; i++) {
+        let label = document.createElement('label');
+        let option = document.createElement('input');
+        option.setAttribute('type', 'radio');
+        option.setAttribute('name', `question${this.questionNumber}`);
+        option.value = `option${i}`;
+        label.appendChild(option);
+        label.innerHTML += ` Option ${i}`;
+        questionContainer.appendChild(label);
+    }
+
+   
+
+    return questionContainer;
+}
+
+
+
+        }
+    
+        let questionCounter = 1;
+        const formBody = document.querySelector('.form-body');
+        const addQuestionButton = document.querySelector('#add-question');
+    
+        addQuestionButton.addEventListener('click', () => {
+            let question = new Question(questionCounter++);
+            let questionElement = question.createQuestionElement();
+            formBody.insertBefore(questionElement, addQuestionButton.parentNode);
+        });
+    });
+    </script>    
+</head>
+<body>
+    <div class="header">
+        <div class="left-section">
+            <i class="fa fa-bars menu-icon"></i>
+            <img src="https://logowik.com/content/uploads/images/google-forms8392.jpg" alt="Google Form Icon" class="google-form-icon" style="width: 50px;">
+            <span>Google Form</span>
+            <i class="fa fa-star star-icon"></i>
+        </div>
+        <div class="center-section"> <!-- New center section for the navigation links -->
+            <nav class="form-navigation">
+                <a href="#questions" class="nav-link questions">Questions</a>
+                <a href="#responses" class="nav-link">Responses</a>
+                <a href="#settings" class="nav-link">Settings</a>
+            </nav>
+        </div>
+        <div class="right-section">
+            <!-- Place icons for settings, send, etc. here -->
+            <button>Send</button>
+            <button class="more-options">...</button>
+        </div>
+    </div>    
+    <div class="form-container">
+        <div class="form-title">
+            <h1 contenteditable="true">Form description</h1>
+        </div>
+        <div class="form-body">
+            <!-- Questions will be added here -->
+            <div class="button-container">
+                <button id="add-question">Add Question</button>
+            </div>
+        </div> 
+    <div class="form-footer">
+        <button class="submit-btn">Submit</button>
+    </div>
+</div>
+
+</body>
+</html>

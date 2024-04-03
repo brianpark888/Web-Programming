@@ -1,0 +1,59 @@
+h1{
+    font-size: 40px;
+    text-align: center;
+}
+
+p{
+    font-size: 20px;
+    text-align: center;
+}
+
+#form-container{
+    text-align: center;
+}
+
+form input, button, select{
+    padding: 10px;
+    font-size: 18px;
+    margin: 10px;
+    border-radius: 30px;
+}
+
+li{
+    text-align: center;
+    border: 1px solid black;
+    border-radius: 30px;
+    margin: 20px;
+    margin-right: 400px;
+    margin-left: 400px;
+    font-size: 20px;
+}
+
+li button{
+    padding: 2px;
+    border: none;
+    background-color: transparent;
+}
+
+li:hover {
+    transform: scale(1.05); /* Scales up the item */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adds shadow for depth */
+}
+
+.Home{
+    background-color: #00C9A7;
+}
+
+.School{
+    background-color: #FBEAFF;
+}
+
+.Work{
+    background-color: #B39CD0;
+}
+
+.completed{
+    text-decoration: line-through;
+    background-color:  #ebe8e8;
+}
+

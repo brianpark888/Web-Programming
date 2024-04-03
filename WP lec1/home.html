@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Times Table Calculator</title>
+</head>
+<body>
+    <h1>Times Table Calculator</h1>
+    <label for="numberInput">Enter a number:</label>
+    <input type="number" id="numberInput">
+    <button onclick="calculateTimesTable()">Calculate</button>
+
+    <ul id="timesTable"></ul>
+
+    <script>
+        function calculateTimesTable() {
+            // Get user input
+            var number = parseInt(document.getElementById("numberInput").value);
+
+            // Validate input
+            if (isNaN(number)) {
+                alert("Please enter a valid number.");
+                return;
+            }
+
+            // Clear previous results
+            var timesTableList = document.getElementById("timesTable");
+            timesTableList.innerHTML = "";
+
+            // Calculate and display times table
+            for (var i = 1; i <= 9; i++) {
+                var result = number * i;
+                var listItem = document.createElement("li");
+                listItem.textContent = number + " * " + i + " = " + result;
+                timesTableList.appendChild(listItem);
+            }
+        }
+    </script>
+</body>
+</html>

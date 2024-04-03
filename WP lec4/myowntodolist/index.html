@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <title>My-own-to-do-list</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <h1>To-Do-List</h1>
+        <p>This is my to-do-list. In this to-do-list, there is additional css styling. Also, tasks are color coded based on the tag. Also, an alert is displayed if fields are not entered.</p>
+        <form id="form-container">
+            <input type= "text" id = "title" placeholder="Task">
+            <input type= "date" id = "dueDate" placeholder="Due Date">
+            <select name= "tags" id = "tags">
+                <option value = "Home">Home</option>
+                <option value = "School">School</option>
+                <option value = "Work">Work</option>
+            </select>   
+            <button id= "addBtn">Add Task</button>
+        </form>
+        <ul id ="todoList"></ul>
+        <script type="module" src="app.js"></script>
+    </body>
+</html>

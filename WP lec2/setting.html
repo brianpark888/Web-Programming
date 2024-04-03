@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-cJaMpDuTwqHDzrpvh2l0V0Gqv8B5dZcP+T5+yKXQ+wucxgWG0bz+11Xp2FX0ozCfGmRjCPL5kzbKfwJykDh1VQ==" crossorigin="anonymous" />
+<title>Styled Form</title>
+<style>
+    body {
+        font-family: 'Roboto', sans-serif;
+        background-color: rgb(240,235,248);
+        margin: 0;
+        padding: 0;
+    }
+    /* Generic style for the navigation menu */
+    .form-navigation {
+    display: flex; /* this will lay out its children inline */
+    justify-content: center;
+    padding: 0;
+    margin-top: 10px; /* space above the navigation links */
+}
+
+/* Style for individual navigation links */
+.nav-link {
+    display: inline-block;
+    padding: 8px 15px;
+    margin-right: 10px;
+    text-decoration: none;
+    color: #000;
+    font-weight: normal;
+    border-radius: 4px;
+    font-size: 18px;
+}
+
+/* Style specifically for the settings link */
+.nav-link.settings {
+    color: rgb(103, 58, 183); /* Setting color to rgb(103,58,183) */
+    font-weight: bolder;    
+}
+
+/* Hover effect for navigation links */
+.nav-link:hover {
+    background-color: #f2f2f2;
+    text-decoration: none;
+    cursor: pointer;
+}
+.header {
+    background-color: #ffffff; /* white background */
+    color: black; /* dark gray color for the text */
+    display: flex; /* using flexbox for layout */
+    align-items: center; /* vertically center items in the header */
+    justify-content: space-between; /* spread out the items */
+    padding: 30px 24px; /* top and bottom padding 16px, left and right padding 24px */
+    box-shadow: 0 1px 2px 0 rgba(60,64,67,0.302), 0 1px 3px 1px rgba(60,64,67,0.149); /* subtle shadow for depth */
+    font-size: 22px; /* adjusting font size to match */
+    border-bottom: 1px solid #dadce0; /* light gray border at the bottom */
+}
+
+/* This is the new part */
+.header .left-section {
+    display: flex; /* using flexbox for layout */
+    align-items: center; /* align items vertically */
+    gap: 10px; /* space between items */
+}
+
+.header .center-section {
+    display: flex;
+    flex-grow: 1; /* takes up the available space */
+    justify-content: center; /* centers the navigation links */
+}
+
+.form-navigation {
+    display: flex; /* this will lay out its children inline */
+    justify-content: center;
+    align-items: center; /* vertically center the links */
+    gap: 20px; /* space between navigation links */
+}
+
+    .header .right-section {
+        display: flex; /* using flexbox for layout */
+        align-items: center; /* align items vertically */
+        gap: 20px; /* space between items */
+    }
+
+    .header .right-section button {
+        background-color: rgb(103,58,183); /* blue background for buttons */
+        color: white; /* white text color */
+        border: none; /* no border */
+        padding: 10px 20px; /* padding inside the button */
+        border-radius: 4px; /* rounded corners for the button */
+        cursor: pointer; /* cursor changes to pointer on hover */
+        font-size: 16px; /* font size for the text inside the button */
+    }
+
+    .header .right-section button:hover {
+        background-color: grey; /* slightly darker blue on hover */
+    }
+
+    .header .right-section .more-options {
+        background: none; /* no background for the more options button */
+        color: #5f6368; /* color of the text/icon */
+        border: none; /* no border */
+        padding: 10px; /* padding inside the button */
+        border-radius: 50%; /* circular shape */
+        cursor: pointer; /* cursor changes to pointer on hover */
+    }
+
+    /* Assuming you will use icons like FontAwesome, this is how you can style the icons */
+    .header i {
+        font-size: 24px; /* size of the icon */
+        color: #5f6368; /* icon color */
+    }
+
+    .header .star-icon {
+        color: #f4b400; /* golden color for the star */
+    }
+
+    .form-container {
+            max-width: 600px;
+            margin: 20px auto;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+    .form-title {
+        padding: 20px;
+        margin: 30px;
+        border-bottom: 1px solid #ccc;
+    }
+    .form-title h1 {
+        margin: 0;
+    }
+    .form-body {
+        padding: 20px;
+    }
+    .form-question {
+        margin-bottom: 20px;
+    }
+    .form-question label {
+        font-weight: bold; /* Making the question headers bold */
+        font-size: 20px; /* Making the question headers larger */
+        display: block;
+        margin-bottom: 10px;
+    }
+    .response-container {
+        padding: 10px;
+        border-radius: 4px;
+        transition: background-color 0.3s ease; /* Adding transition effect */
+    }
+    .form-footer {
+        padding: 20px;
+        border-top: 1px solid #ccc;
+        text-align: right;
+    }
+
+    .button-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+/* Toggle button styles */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 40px; /* Reduced width */
+    height: 20px; /* Reduced height */
+}
+
+.switch input { 
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #f2f2f2; /* Consistent background color */
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 20px; /* Rounded shape */
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 16px; /* Reduced height */
+    width: 16px; /* Reduced width */
+    left: 2px; /* Adjusted position */
+    bottom: 2px; /* Adjusted position */
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 50%; /* Rounded shape */
+}
+
+input:checked + .slider {
+    background-color:rgb(103,58,183);
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px rgb(103,58,183);
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(20px); /* Adjusted width */
+    -ms-transform: translateX(20px); /* Adjusted width */
+    transform: translateX(20px); /* Adjusted width */
+}
+
+/* Rounded sliders */
+.slider.round {
+    border-radius: 20px; /* Rounded shape */
+}
+
+.slider.round:before {
+    border-radius: 50%; /* Rounded shape */
+}
+
+</style>
+</head>
+<body>
+    <div class="header">
+        <div class="left-section">
+            <i class="fa fa-bars menu-icon"></i>
+            <img src="https://logowik.com/content/uploads/images/google-forms8392.jpg" alt="Google Form Icon" class="google-form-icon" style="width: 50px;">
+            <span>Google Form</span>
+            <i class="fa fa-star star-icon"></i>
+        </div>
+        <div class="center-section"> <!-- New center section for the navigation links -->
+            <nav class="form-navigation">
+                <a href="#questions" class="nav-link">Questions</a>
+                <a href="#responses" class="nav-link">Responses</a>
+                <a href="#settings" style= "" class="nav-link settings">Settings</a>
+            </nav>
+        </div>
+        <div class="right-section">
+            <!-- Place icons for settings, send, etc. here -->
+            <button>Send</button>
+            <button class="more-options">...</button>
+        </div>
+    </div>    
+    <div class="form-container">
+        <div class="form-title">
+            <h1 contenteditable="false">Settings</h1>
+        </div>
+        <div class="form-body">
+            <div class="form-question">
+                <label>Stop Taking in More Responses:</label>
+                <div class="response-container">
+                    <label class="switch">
+                        <input type="checkbox">
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+            </div>
+            <div class="form-question">
+                <label>Enable Captcha:</label>
+                <div class="response-container">
+                    <label class="switch">
+                        <input type="checkbox">
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+            </div>
+            <div class="form-question">
+                <label>Allow Anonymous Responses:</label>
+                <div class="response-container">
+                    <label class="switch">
+                        <input type="checkbox">
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
